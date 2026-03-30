@@ -2,6 +2,7 @@ import express, {Request, Response} from 'express'
 import cors, {CorsOptions} from 'cors';
 import { getAllBooks, getBookByCategory, getBookById, addBook } from "./services/BookService";
 import bookRoutes from "./routes/BookRoute";
+import uploadRoutes from "./routes/UploadFileRoutes";
 import type  Book from "./models/Book";
 
 const app = express();
@@ -20,6 +21,7 @@ const corsOptions: CorsOptions = {
 app.use(cors(corsOptions));
 
 app.use('/api/books', bookRoutes);
+app.use('/api', uploadRoutes);
 
 
 app.listen(port, () => {
