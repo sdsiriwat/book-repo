@@ -1,10 +1,12 @@
 export default interface Book {
-  id: number;
+  id?: number;
   category: string;
   title: string;
-  description: string;
+  description: string | null;
   author: string;
   isbn: string;
   publicationDate: string;
   pages: number;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
